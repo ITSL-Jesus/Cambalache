@@ -1,0 +1,153 @@
+Para correr nuestro proyecto se debe contar con la virtualizacion de WSL Docker UBUNTU 20.4
+
+abrimos una consola de comandos (CMD O PoweShell) y accedesmos a la terminal espejo de WSL.
+
+PS C:\Users\DevLu> wsl      <--- como aparece aqui
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.10.16.3-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This message is shown once a day. To disable it please create the
+/home/user/.hushlogin file.
+user@PC:/mnt/c/Users/DevLu$ <-- ya estas dentro.
+
+ahora dirigete a la ruta donde tengas el proyecto.
+user@PC:/mnt/c/Users/DevLu$ cd Desktop/cambalache  <--- la mia esta en el escritorio
+user@PC:/mnt/c/Users/DevLu/Desktop/cambalache$
+
+ahora solo debes ejecutar el comando sali up o ./vendor/bin/sail up, para inicializar el servidor y ejecutar la virtualizacion de la BD y el server local.
+
+user@PC:/mnt/c/Users/DevLu/Desktop/cambalache$ sali up
+[+] Building 0.0s (0/0)
+[+] Running 6/0
+ ✔ Container cambalache-mysql-1         Created                                                                    0.0s
+ ✔ Container cambalache-mailpit-1       Created                                                                    0.0s
+ ✔ Container cambalache-redis-1         Created                                                                    0.0s
+ ✔ Container cambalache-meilisearch-1   Created                                                                    0.0s
+ ✔ Container cambalache-selenium-1      Created                                                                    0.0s
+ ✔ Container cambalache-laravel.test-1  Created                                                                    0.0s
+Attaching to cambalache-laravel.test-1, cambalache-mailpit-1, cambalache-meilisearch-1, cambalache-mysql-1, cambalache-redis-1, cambalache-selenium-1
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | 888b     d888          d8b 888 d8b                                            888
+cambalache-meilisearch-1   | 8888b   d8888          Y8P 888 Y8P                                            888
+cambalache-meilisearch-1   | 88888b.d88888              888                                                888
+cambalache-meilisearch-1   | 888Y88888P888  .d88b.  888 888 888 .d8888b   .d88b.   8888b.  888d888 .d8888b 88888b.
+cambalache-meilisearch-1   | 888 Y888P 888 d8P  Y8b 888 888 888 88K      d8P  Y8b     "88b 888P"  d88P"    888 "88b
+cambalache-meilisearch-1   | 888  Y8P  888 88888888 888 888 888 "Y8888b. 88888888 .d888888 888    888      888  888
+cambalache-meilisearch-1   | 888   "   888 Y8b.     888 888 888      X88 Y8b.     888  888 888    Y88b.    888  888
+cambalache-meilisearch-1   | 888       888  "Y8888  888 888 888  88888P'  "Y8888  "Y888888 888     "Y8888P 888  888
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | Config file path:  "none"
+cambalache-meilisearch-1   | Database path:             "./data.ms"
+cambalache-meilisearch-1   | Server listening on:       "http://0.0.0.0:7700"
+cambalache-meilisearch-1   | Environment:               "development"
+cambalache-meilisearch-1   | Commit SHA:                "d963b5f85ae9aea42615924de4e41e96a1e5358e"
+cambalache-meilisearch-1   | Commit date:               "2023-05-30T18:20:28+00:00"
+cambalache-meilisearch-1   | Package version:   "1.2.0"
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | Thank you for using Meilisearch!
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | We collect anonymized analytics to improve our product and your experience. To learn more, including how to turn off analytics, visit our dedicated documentation page: https://www.meilisearch.com/docs/learn/what_is_meilisearch/telemetry
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | Anonymous telemetry:       "Enabled"
+cambalache-meilisearch-1   | Instance UID:              "472e5b34-1294-42db-a813-0311c917ae68"
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   |  No master key was found. The server will accept unidentified requests.
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   |  A master key of at least 16 bytes will be required when switching to a production environment.
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | We generated a new secure master key for you (you can safely use this token):
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | >> --master-key 7lkNTJsTsXGWNVmy08gYhMGzE4jGT3vfK7yNjRXj9ds <<
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | Restart Meilisearch with the argument above to use this new and secure master key.
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | Documentation:             https://www.meilisearch.com/docs
+cambalache-meilisearch-1   | Source code:               https://github.com/meilisearch/meilisearch
+cambalache-meilisearch-1   | Discord:           https://discord.meilisearch.com
+cambalache-meilisearch-1   |
+cambalache-meilisearch-1   | [2023-06-24T09:46:05Z INFO  actix_server::builder] Starting 4 workers
+cambalache-meilisearch-1   | [2023-06-24T09:46:05Z INFO  actix_server::server] Actix runtime found; starting in Actix runtime
+cambalache-selenium-1      | 2023-06-24 09:46:06,061 INFO Included extra file "/etc/supervisor/conf.d/selenium.conf" during parsing
+cambalache-selenium-1      | 2023-06-24 09:46:06,065 INFO RPC interface 'supervisor' initialized
+cambalache-selenium-1      | 2023-06-24 09:46:06,065 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+cambalache-selenium-1      | 2023-06-24 09:46:06,066 INFO supervisord started with pid 8
+cambalache-mailpit-1       | INFO[2023/06/24 09:46:06] [smtpd] starting on 0.0.0.0:1025
+cambalache-mailpit-1       | INFO[2023/06/24 09:46:06] [http] starting server on http://localhost:8025/
+cambalache-mysql-1         | [Entrypoint] MySQL Docker Image 8.0.32-1.2.11-server
+cambalache-mysql-1         | [Entrypoint] Starting MySQL 8.0.32-1.2.11-server
+cambalache-selenium-1      | 2023-06-24 09:46:07,068 INFO spawned: 'xvfb' with pid 10
+cambalache-selenium-1      | 2023-06-24 09:46:07,070 INFO spawned: 'vnc' with pid 11
+cambalache-selenium-1      | 2023-06-24 09:46:07,071 INFO spawned: 'novnc' with pid 12
+cambalache-selenium-1      | 2023-06-24 09:46:07,073 INFO spawned: 'selenium-standalone' with pid 13
+cambalache-selenium-1      | Setting up SE_NODE_GRID_URL...
+cambalache-selenium-1      | 2023-06-24 09:46:07,083 INFO success: xvfb entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+cambalache-selenium-1      | 2023-06-24 09:46:07,084 INFO success: vnc entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+cambalache-selenium-1      | 2023-06-24 09:46:07,084 INFO success: novnc entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+cambalache-selenium-1      | 2023-06-24 09:46:07,084 INFO success: selenium-standalone entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+cambalache-redis-1         | 1:C 24 Jun 2023 09:46:07.186 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+cambalache-redis-1         | 1:C 24 Jun 2023 09:46:07.186 # Redis version=7.0.11, bits=64, commit=00000000, modified=0, pid=1, just started
+cambalache-redis-1         | 1:C 24 Jun 2023 09:46:07.186 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.187 * monotonic clock: POSIX clock_gettime
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.188 * Running mode=standalone, port=6379.
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.188 # Server initialized
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.189 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.190 * Loading RDB produced by version 7.0.11
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.190 * RDB age 350 seconds
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.190 * RDB memory usage when created 0.85 Mb
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.190 * Done loading RDB, keys loaded: 0, keys expired: 0.
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.190 * DB loaded from disk: 0.000 seconds
+cambalache-redis-1         | 1:M 24 Jun 2023 09:46:07.191 * Ready to accept connections
+cambalache-selenium-1      | Selenium Grid Standalone configuration:
+cambalache-selenium-1      | [network]
+cambalache-selenium-1      | relax-checks = true
+cambalache-selenium-1      |
+cambalache-selenium-1      | [node]
+cambalache-selenium-1      | session-timeout = "300"
+cambalache-selenium-1      | override-max-sessions = false
+cambalache-selenium-1      | detect-drivers = false
+cambalache-selenium-1      | drain-after-session-count = 0
+cambalache-selenium-1      | max-sessions = 1
+cambalache-selenium-1      |
+cambalache-selenium-1      | [[node.driver-configuration]]
+cambalache-selenium-1      | display-name = "chrome"
+cambalache-selenium-1      | stereotype = '{"browserName": "chrome", "browserVersion": "114.0", "platformName": "Linux"}'
+cambalache-selenium-1      | max-sessions = 1
+cambalache-selenium-1      |
+cambalache-selenium-1      | Starting Selenium Grid Standalone...
+cambalache-selenium-1      | Tracing is disabled
+cambalache-mysql-1         | 2023-06-24T09:46:07.387073Z 0 [Warning] [MY-011068] [Server] The syntax '--skip-host-cache' is deprecated and will be removed in a future release. Please use SET GLOBAL host_cache_size=0 instead.
+cambalache-mysql-1         | 2023-06-24T09:46:07.390148Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.32) starting as process 1
+cambalache-mysql-1         | 2023-06-24T09:46:07.401335Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+cambalache-mysql-1         | 2023-06-24T09:46:07.632842Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+cambalache-mysql-1         | 2023-06-24T09:46:07.937000Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+cambalache-mysql-1         | 2023-06-24T09:46:07.937050Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+cambalache-mysql-1         | 2023-06-24T09:46:07.977328Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+cambalache-mysql-1         | 2023-06-24T09:46:07.977450Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.32'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Community Server - GPL.
+cambalache-selenium-1      | 09:46:08.076 INFO [LoggingOptions.configureLogEncoding] - Using the system default encoding
+cambalache-selenium-1      | 09:46:08.083 INFO [OpenTelemetryTracer.createTracer] - Using OpenTelemetry for tracing
+cambalache-laravel.test-1  | usermod: no changes
+cambalache-selenium-1      | 09:46:08.905 INFO [NodeOptions.getSessionFactories] - Detected 8 available processors
+cambalache-selenium-1      | 09:46:08.960 INFO [NodeOptions.report] - Adding chrome for {"browserName": "chrome","browserVersion": "114.0","platformName": "linux","se:noVncPort": 7900,"se:vncEnabled": true} 1 times (Host)
+cambalache-laravel.test-1  | 2023-06-24 09:46:08,977 INFO Set uid to user 0 succeeded
+cambalache-laravel.test-1  | 2023-06-24 09:46:08,980 INFO supervisord started with pid 1
+cambalache-selenium-1      | 09:46:08.984 INFO [Node.<init>] - Binding additional locator mechanisms: relative
+cambalache-selenium-1      | 09:46:09.025 INFO [GridModel.setAvailability] - Switching Node 9c1aa5e8-0587-45ef-8650-d80d82da6010 (uri: http://172.24.0.4:4444) from DOWN to UP
+cambalache-selenium-1      | 09:46:09.026 INFO [LocalDistributor.add] - Added node 9c1aa5e8-0587-45ef-8650-d80d82da6010 at http://172.24.0.4:4444. Health check every 120s
+cambalache-selenium-1      | 09:46:09.206 INFO [Standalone.execute] - Started Selenium Standalone 4.10.0 (revision c14d967899): http://172.24.0.4:4444
+cambalache-laravel.test-1  | 2023-06-24 09:46:09,982 INFO spawned: 'php' with pid 9
+cambalache-laravel.test-1  | 2023-06-24 09:46:10,984 INFO success: php entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+cambalache-laravel.test-1  |
+cambalache-laravel.test-1  |    INFO  Server running on [http://0.0.0.0:80].
+cambalache-laravel.test-1  |
+cambalache-laravel.test-1  |   Press Ctrl+C to stop the server
+cambalache-laravel.test-1  |
+cambalache-meilisearch-1   | [2023-06-24T09:46:35Z INFO  actix_web::middleware::logger] 127.0.0.1 "GET /health HTTP/1.1" 200 22 "-" "Wget" 0.000497
+
+y aqui ya se mestra la ruta del server 127.0.0.1 e ingresas al navegador y estara funcionando todo correctamente.

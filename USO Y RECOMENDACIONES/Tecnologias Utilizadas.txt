@@ -1,0 +1,25 @@
+Tecnologias:
+laravel
+api nodejs
+boostrap
+Tailwind
+docker
+mysql
+Dropzone
+intervention.io
+libreria faker
+Livewire
+Route Model Binding
+Metodo spoofing
+Libreria carbon --- horas mediante una api
+
+Comandos:
+wsl - sail linux
+php 
+artisan
+npm
+mongo
+factories -> faker -> artisan tinker 
+sali artisan route:cache
+sali artisan route:list
+convenciones en ingles sirven para que el framework te pueda ayudar mas.
